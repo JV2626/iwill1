@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Will - Cadastro de Produtos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico e configurações globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Estilo do corpo da página */
+        body {
+            background-color: #fafafa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Cabeçalho fixo no topo */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            height: 80px;
+        }
+
+        /* Logo no cabeçalho */
+        .logo img {
+            width: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: rotate(15deg);
+        }
+
+        /* Navegação com botões */
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Estilo dos botões */
+        .btn {
+            background: linear-gradient(135deg, #a00, #800);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(160, 0, 0, 0.3);
+        }
+
+        /* Conteúdo principal da página */
+        main {
+            padding-top: 100px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Container para as duas divs */
+        .form-container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Estilo das divs (vendedor e produto) */
+        .form-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            animation: slideIn 1s ease-in-out;
+            transition: transform 0.3s ease;
+        }
+
+        .form-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-section h3 {
+            color: #a00;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: #a00;
+            box-shadow: 0 0 5px rgba(160, 0, 0, 0.5);
+        }
+
+        .publish-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #a00, #800);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .publish-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(160, 0, 0, 0.3);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .form-container {
+                flex-direction: column;
+            }
+
+            .form-section {
+                width: 100%;
+            }
+
+            .input-field {
+                font-size: 14px;
+            }
+
+            .publish-btn {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="icon.png" alt="Ícone I Will">
+        </div>
+        <nav>
+            <button class="btn" onclick="window.location.href='index.html'">Voltar</button>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <div class="form-container">
+            <!-- Div do Vendedor -->
+            <div class="form-section">
+                <h3>Cadastro do Vendedor</h3>
+                <div class="input-group">
+                    <label>Nome do Vendedor</label>
+                    <input type="text" class="input-field" placeholder="Insira seu nome completo" required>
+                </div>
+                <div class="input-group">
+                    <label>Idade</label>
+                    <input type="number" class="input-field" placeholder="Insira sua idade" required>
+                </div>
+                <div class="input-group">
+                    <label>Número de Telefone</label>
+                    <input type="tel" class="input-field" placeholder="Insira seu número de telefone" required>
+                </div>
+                <div class="input-group">
+                    <label>Classe</label>
+                    <select class="input-field" required>
+                        <option value="">Selecione uma classe</option>
+                        <option value="A">Classe A</option>
+                        <option value="B">Classe B</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Descrição do Vendedor</label>
+                    <textarea class="input-field" rows="3" placeholder="Insira uma descrição sobre você" required></textarea>
+                </div>
+            </div>
+
+            <!-- Div do Produto -->
+            <div class="form-section">
+                <h3>Cadastro do Produto</h3>
+                <div class="input-group">
+                    <label>Nome do Serviço</label>
+                    <input type="text" class="input-field" placeholder="Insira o nome do serviço" required>
+                </div>
+                <div class="input-group">
+                    <label>Tempo de Entrega</label>
+                    <input type="text" class="input-field" placeholder="Insira o tempo de entrega" required>
+                </div>
+                <div class="input-group">
+                    <label>Preço</label>
+                    <input type="number" class="input-field" placeholder="Insira o preço do serviço" required>
+                </div>
+                <div class="input-group">
+                    <label>Descrição do Serviço</label>
+                    <textarea class="input-field" rows="4" placeholder="Insira uma descrição detalhada do serviço" required></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão de Publicar -->
+        <button class="publish-btn">Publicar</button>
+    </main>
+</body>
+</html>
