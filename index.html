@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Will - Serviços Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico e configurações globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Estilo do corpo da página */
+        body {
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Cabeçalho fixo no topo */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            height: 80px; /* Altura fixa para o header */
+        }
+
+        /* Logo no cabeçalho */
+        .logo img {
+            width: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: rotate(15deg);
+        }
+
+        /* Navegação com botões */
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Estilo dos botões */
+        .btn {
+            background: linear-gradient(135deg, #a00, #800);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(160, 0, 0, 0.3);
+        }
+
+        /* Conteúdo principal da página */
+        main {
+            padding-top: 120px; /* Aumentei o padding-top para garantir espaço */
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Seção de boas-vindas */
+        .welcome {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            margin-top: 15vh;
+        }
+
+        .welcome h1 {
+            color: #a00;
+            font-size: 32px;
+            margin-bottom: 15px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .welcome p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Seção de login/cadastro */
+        .login-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 0 auto;
+            max-width: 400px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .login-box p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .login-box .btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        /* Rodapé da página */
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            background: white;
+            text-align: center;
+            box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 35px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="icon.png" alt="Ícone I Will">
+        </div>
+        <nav>
+            <button class="btn" onclick="window.location.href='sobre.html'">Sobre</button>
+            <button class="btn" onclick="window.location.href='ajuda.html'">Ajuda</button>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Seção de boas-vindas -->
+        <div class="welcome">
+            <h1>Bem-vindo ao I Will!</h1>
+            <p>
+                Conectamos talentos a oportunidades. Encontre serviços incríveis ou ofereça suas habilidades para ganhar dinheiro extra.
+            </p>
+        </div>
+
+        <!-- Seção de login/cadastro -->
+        <div class="login-box">
+            <p>Já tem uma conta?</p>
+            <button class="btn" onclick="window.location.href='login.html'">Entrar</button>
+            <button class="btn" onclick="window.location.href='registro.html'">Cadastrar</button>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/_vmasscz/"><img src="instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="whatsapp.png" alt="WhatsApp"></a>
+        </div>
+    </footer>
+</body>
+</html>

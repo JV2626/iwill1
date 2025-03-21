@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Will - Página de Vendas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico e configurações globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Estilo do corpo da página */
+        body {
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Cabeçalho fixo no topo */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            height: 80px; /* Altura fixa para o header */
+        }
+
+        /* Logo no cabeçalho */
+        .logo img {
+            width: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: rotate(15deg);
+        }
+
+        /* Navegação com botões */
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Estilo dos botões */
+        .btn {
+            background: linear-gradient(135deg, #a00, #800);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(160, 0, 0, 0.3);
+        }
+
+        /* Conteúdo principal da página */
+        main {
+            padding-top: 100px; /* Ajuste para compensar a altura do header */
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Seção inspiradora com frase motivacional */
+        .inspiration {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            margin-top: 15vh;
+        }
+
+        .inspiration h2 {
+            color: #a00;
+            font-size: 28px;
+            margin-bottom: 15px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .inspiration p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Barra de pesquisa */
+        .search-bar {
+            margin-bottom: 40px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            border-color: #a00;
+        }
+
+        /* Grid de produtos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 produtos por linha */
+            gap: 30px;
+            padding: 20px;
+        }
+
+        /* Card de produto */
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .product-card .seller {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .product-card .description {
+            font-style: italic;
+            color: #a00;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .product-card .details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .product-card .rating {
+            color: #ffd700; /* Cor das estrelas */
+            font-size: 16px;
+        }
+
+        .product-card .deadline {
+            font-size: 14px;
+            color: #333;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+
+        .product-card .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #a00;
+            margin: 15px 0;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            background: linear-gradient(135deg, #a00, #800);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(160, 0, 0, 0.3);
+        }
+
+        /* Rodapé da página */
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            background: white;
+            text-align: center;
+            box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 35px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+            border-radius: 15px;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        #btn2{
+            background: linear-gradient(135deg, #a00, #800);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="icon.png" alt="Ícone I Will">
+        </div>
+        <nav>
+            <button class="btn" onclick="window.location.href='login.html'">Login</button>
+            <button class="btn" onclick="window.location.href='registro.html'">Registrar</button>
+            <button class="btn" onclick="window.location.href='index.html'">Inicío</button>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Seção inspiradora -->
+        <div class="inspiration">
+            <h2>Transforme seu talento em renda extra hoje!</h2>
+            <p>
+                Na I Will, novas oportunidades de trabalho estão à sua espera. Explore novos projetos fascinantes de nossa comunidade de compradores e transforme suas habilidades em lucro. Comece agora e veja seus ganhos crescerem!
+            </p>
+        </div>
+
+        <!-- Barra de pesquisa -->
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquise um serviço..." id="searchInput">
+        </div>
+
+        <!-- Grid de produtos -->
+        <div class="product-grid">
+            <!-- Produto 1 -->
+            <div class="product-card">
+                <img src="https://www.redelease.com.br/media/amasty/amoptmobile/catalog/product/cache/f1bc2322388b72c78a669345b629a44a/c/a/caixa_de_papel_o_41_x_31_x_23_cm_10_un_.png" alt="Produto 1">
+                <h3>Serviço 1</h3>
+                <p class="seller">Vendedor: João Queiroz</p>
+                <p class="description">Eu vou [descrição do serviço]</p>
+                <div class="details">
+                    <div class="rating">⭐ 4.5</div>
+                    <div class="deadline">💤 2d</div>
+                </div>
+                <div class="price">R$ 50,00</div>
+                <button class="btn">Comprar</button>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="product-card">
+                <img src="https://www.redelease.com.br/media/amasty/amoptmobile/catalog/product/cache/f1bc2322388b72c78a669345b629a44a/c/a/caixa_de_papel_o_41_x_31_x_23_cm_10_un_.png" alt="Produto 2">
+                <h3>Serviço 2</h3>
+                <p class="seller">Vendedor: Dieguinho</p>
+                <p class="description">Eu vou [descrição do serviço]</p>
+                <div class="details">
+                    <div class="rating">⭐ 4.0</div>
+                    <div class="deadline">💤 3d</div>
+                </div>
+                <div class="price">R$ 75,00</div>
+                <button class="btn">Comprar</button>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product-card">
+                <img src="https://www.redelease.com.br/media/amasty/amoptmobile/catalog/product/cache/f1bc2322388b72c78a669345b629a44a/c/a/caixa_de_papel_o_41_x_31_x_23_cm_10_un_.png" alt="Produto 3">
+                <h3>Serviço 3</h3>
+                <p class="seller">Vendedor: Caralhos Alberto</p>
+                <p class="description">Eu vou [descrição do serviço]</p>
+                <div class="details">
+                    <div class="rating">⭐ 5.0</div>
+                    <div class="deadline">💤 7d</div>
+                </div>
+                <div class="price">R$ 100,00</div>
+                <button class="btn">Comprar</button>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product-card">
+                <img src="https://www.redelease.com.br/media/amasty/amoptmobile/catalog/product/cache/f1bc2322388b72c78a669345b629a44a/c/a/caixa_de_papel_o_41_x_31_x_23_cm_10_un_.png" alt="Produto 4">
+                <h3>Serviço 4</h3>
+                <p class="seller">Vendedor: izsa</p>
+                <p class="description">Eu vou [descrição do serviço]</p>
+                <div class="details">
+                    <div class="rating">⭐ 4.8</div>
+                    <div class="deadline">💤 5d</div>
+                </div>
+                <div class="price">R$ 90,00</div>
+                <button class="btn">Comprar</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/_vmasscz/"><img src="instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="whatsapp.png" alt="WhatsApp"></a>
+
+            <nav>
+            <button class="btn" onclick="window.location.href='sobre.html'" id="btn2">Sobre</button>
+            <button class="btn" onclick="window.location.href='ajuda.html'" id="btn2">Ajuda</button>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Script para a função de pesquisa -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const productCards = document.querySelectorAll('.product-card');
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('.description').textContent.toLowerCase();
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

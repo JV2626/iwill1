@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro & Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+        .container {
+            border: 2px solid #a00;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .container img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #a00;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #a00;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #800;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            color: #a00;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        #logo{
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <img src="icon.png" id="logo" alt="Ícone I Will">
+        <h2>Entrar</h2>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Senha">
+        <button class="btn" onclick="window.location.href='vendas.html'">Entrar</button>
+        <a href="registro.html">Não tem uma conta? Registre-se</a>
+        <a href="index.html">Voltar para a pagina inicial</a>
+
+    </div>
+
+</body>
+</html>
